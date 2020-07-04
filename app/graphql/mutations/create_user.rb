@@ -5,7 +5,6 @@ class Mutations::CreateUser < Mutations::BaseMutation
 
   def resolve(name:)
     user = User.new(name: name)
-    errors = []
     {user: user.save ? user : nil, errors: user.errors.full_messages}
   end
 end
